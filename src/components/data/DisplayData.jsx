@@ -4,7 +4,6 @@ import "./display.css";
 
 const DisplayData = () => {
   const [displayData, setDisplayData] = useState([]);
-  const [page, setPage] = useState(1);
   const fetchData = async () => {
     // const queryparam = `?skip=${(page - 1) * 10}&limit=10`;
     try {
@@ -25,7 +24,7 @@ const DisplayData = () => {
 
   useEffect(() => {
     fetchData();
-  }, [page]);
+  }, []);
   return (
     <>
       <div>
@@ -45,10 +44,7 @@ const DisplayData = () => {
               </li>
               <li>
                 <h3>url &nbsp; </h3>{" "}
-                <a href={`${item?.data?.url}`} target="_blank">
-                  {" "}
-                  Redirect to Url{" "}
-                </a>
+                <a href={`${item?.data?.url}`}> Redirect to Url </a>
               </li>
               <li>
                 <h3>Score </h3> - {item?.data?.score}
